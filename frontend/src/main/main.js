@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 const Main = () => {
     const [expense, setExpense] = useState('');
     const [cost, setCost] = useState('');
-    const navigate = useNavigate(); // Initialize useNavigate
+    const navigate = useNavigate();
 
     const handleExpenseChange = (event) => {
         setExpense(event.target.value);
@@ -30,7 +30,7 @@ const Main = () => {
             const response = await axios.post('http://localhost:8000/addExpenses', formData);
             if (response.data.success) {
                 toast.success('Form submitted successfully');
-                navigate('/expenses'); // Navigate to Expenses page
+                navigate('/expenses');
             } else {
                 toast.error('Error submitting the form');
             }
@@ -41,7 +41,7 @@ const Main = () => {
     };
 
     const handleGoToExpenses = () => {
-        navigate('/expenses'); // Navigate to Expenses page
+        navigate('/expenses');
     };
 
     return (
@@ -70,11 +70,14 @@ const Main = () => {
                         />
                     </label>
                 </div>
-                <button type="submit">Add Expense</button>
+                <button type="submit" className="add-expenses-button">Add Expense</button>
             </form>
-            <button onClick={handleGoToExpenses} className="go-to-expenses-button">
-                Go to Expenses
-            </button>
+            <div className="button-container">
+                <button onClick={handleGoToExpenses} className="go-to-expenses-button">
+                    Go to Expenses
+                </button>
+                {/* Add another button here if needed */}
+            </div>
             <ToastContainer />
         </>
     );
