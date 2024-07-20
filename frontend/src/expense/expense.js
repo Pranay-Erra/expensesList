@@ -1,7 +1,8 @@
 import React from 'react';
 import './expense.css';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Expense = () => {
     const queryClient = useQueryClient();
 
@@ -28,11 +29,13 @@ const Expense = () => {
         },
         onSuccess: () => {
             queryClient.invalidateQueries(['expense']);
+            toast.success('Expense Deleted');
         },
     });
 
     const handleDelete = (id) => {
         deleteMutation.mutate(id);
+        
     };
 
     if (isLoading) return <p>Loading...</p>;
@@ -61,6 +64,7 @@ const Expense = () => {
                     ))}
                 </tbody>
             </table>
+            <ToastContainer />
         </>
     );
 };
