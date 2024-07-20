@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import './main.css';
 import axios from 'axios';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 const Main = () => {
     const [expense, setExpense] = useState('');
     const [cost, setCost] = useState('');
-
+    const nav=useNavigate()
     const handleExpenseChange = (event) => {
         setExpense(event.target.value);
     };
@@ -25,13 +27,14 @@ const Main = () => {
         try {
             const response = await axios.post('http://localhost:8000/addExpenses', formData);
             if (response.data.success) {
-                alert('Form submitted successfully');
+                toast.success('Form submitted successfully');
+                nav('/expenses')
             } else {
-                alert('Error submitting the form');
+                toast.error('Error submitting the form');
             }
         } catch (error) {
             console.log('Error submitting the form', error);
-            alert('Error submitting the form');
+            toast.error('Error submitting the form');
         }
     };
 
@@ -63,6 +66,7 @@ const Main = () => {
                 </div>
                 <button type="submit">Add Expense</button>
             </form>
+            <ToastContainer />
         </>
     );
 };
