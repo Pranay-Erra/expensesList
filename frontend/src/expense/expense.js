@@ -10,7 +10,7 @@ const Expense = () => {
     const { data, isLoading, error } = useQuery({
         queryKey: ['expense'],
         queryFn: async () => {
-            const response = await fetch("http://localhost:8000/expenses");
+            const response = await fetch("https://expenseslist.onrender.com/expenses");
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -20,7 +20,7 @@ const Expense = () => {
 
     const deleteMutation = useMutation({
         mutationFn: async (id) => {
-            const response = await fetch(`http://localhost:8000/expensedelete/${id}`, {
+            const response = await fetch(`https://expenseslist.onrender.com/expensedelete/${id}`, {
                 method: 'DELETE',
             });
             if (!response.ok) {
