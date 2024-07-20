@@ -27,7 +27,7 @@ const Main = () => {
         };
 
         try {
-            const response = await axios.post('http://localhost:8000/addExpenses', formData);
+            const response = await axios.post('https://expenseslist.onrender.com/addExpenses', formData);
             if (response.data.success) {
                 toast.success('Form submitted successfully');
                 navigate('/expenses');
