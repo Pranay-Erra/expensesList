@@ -10,13 +10,16 @@ body {
 
 /* Container styling */
 .container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 20px auto;
     padding: 20px;
     background: #ffffff;
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border: 2px solid #00bcd4;
+    /* Adding padding to prevent content from touching the edges */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 /* Heading styling */
@@ -59,7 +62,7 @@ th {
 }
 
 /* Button styling */
-Del {
+button {
     background-color: #ff5722;
     color: #ffffff;
     border: none;
@@ -71,7 +74,7 @@ Del {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-Del:hover {
+button:hover {
     background-color: #e64a19;
     transform: scale(1.1);
 }
@@ -85,7 +88,49 @@ p {
     font-weight: bold;
 }
 
-/* ToastContainer styling */
-.Toastify__toast-container {
-    top: 80px;
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 12px;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    table {
+        font-size: 0.8rem;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    button {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
 }

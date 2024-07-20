@@ -17,6 +17,9 @@ main {
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border: 2px solid #00bcd4;
+    /* Adding padding to prevent content from touching the edges */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 /* Heading styling */
@@ -72,4 +75,61 @@ button:hover {
 /* ToastContainer styling */
 .Toastify__toast-container {
     top: 80px;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    form {
+        gap: 10px;
+    }
+
+    label {
+        font-size: 1rem;
+    }
+
+    input {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    button {
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    form {
+        gap: 8px;
+    }
+
+    label {
+        font-size: 0.9rem;
+    }
+
+    input {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    button {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
 }
