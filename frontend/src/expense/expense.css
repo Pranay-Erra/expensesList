@@ -1,0 +1,91 @@
+/* expense.css */
+
+/* General body styling */
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #e0f7fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container styling */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border: 2px solid #00bcd4;
+}
+
+/* Heading styling */
+h1 {
+    text-align: center;
+    color: #00796b;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+thead {
+    background-color: #ffeb3b;
+    color: #000;
+}
+
+th, td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background-color: #f1f8e9;
+}
+
+tr:hover {
+    background-color: #dce775;
+}
+
+th {
+    font-weight: bold;
+}
+
+/* Button styling */
+Del {
+    background-color: #ff5722;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+Del:hover {
+    background-color: #e64a19;
+    transform: scale(1.1);
+}
+
+/* No expenses message styling */
+p {
+    text-align: center;
+    color: #555;
+    font-size: 1.2rem;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+/* ToastContainer styling */
+.Toastify__toast-container {
+    top: 80px;
+}

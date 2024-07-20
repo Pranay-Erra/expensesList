@@ -3,6 +3,7 @@ import './expense.css';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 const Expense = () => {
     const queryClient = useQueryClient();
 
@@ -35,7 +36,6 @@ const Expense = () => {
 
     const handleDelete = (id) => {
         deleteMutation.mutate(id);
-        
     };
 
     if (isLoading) return <p>Loading...</p>;
@@ -44,26 +44,30 @@ const Expense = () => {
     return (
         <>
             <h1>Expenses List</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Expense</th>
-                        <th>Cost</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {data && data.map((expense) => (
-                        <tr key={expense._id}>
-                            <td>{expense.expense}</td>
-                            <td>{expense.cost}</td>
-                            <td>
-                                <button onClick={() => handleDelete(expense._id)}>Delete</button>
-                            </td>
+            {data && data.length === 0 ? (
+                <p>No expenses available</p>
+            ) : (
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Expense</th>
+                            <th>Cost</th>
+                            <th>Action</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {data && data.map((expense) => (
+                            <tr key={expense._id}>
+                                <td>{expense.expense}</td>
+                                <td>{expense.cost}</td>
+                                <td>
+                                    <button onClick={() => handleDelete(expense._id)} className='Del'>Delete</button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            )}
             <ToastContainer />
         </>
     );
