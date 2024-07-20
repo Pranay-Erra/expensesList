@@ -17,9 +17,6 @@ body {
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border: 2px solid #00bcd4;
-    /* Adding padding to prevent content from touching the edges */
-    padding: 20px;
-    box-sizing: border-box;
 }
 
 /* Heading styling */

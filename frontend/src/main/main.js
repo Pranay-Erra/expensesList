@@ -4,10 +4,12 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+
 const Main = () => {
     const [expense, setExpense] = useState('');
     const [cost, setCost] = useState('');
-    const nav=useNavigate()
+    const navigate = useNavigate(); // Initialize useNavigate
+
     const handleExpenseChange = (event) => {
         setExpense(event.target.value);
     };
@@ -25,10 +27,10 @@ const Main = () => {
         };
 
         try {
-            const response = await axios.post('https://expenseslist.onrender.com/addExpenses', formData);
+            const response = await axios.post('http://localhost:8000/addExpenses', formData);
             if (response.data.success) {
                 toast.success('Form submitted successfully');
-                nav('/expenses')
+                navigate('/expenses'); // Navigate to Expenses page
             } else {
                 toast.error('Error submitting the form');
             }
@@ -36,6 +38,10 @@ const Main = () => {
             console.log('Error submitting the form', error);
             toast.error('Error submitting the form');
         }
+    };
+
+    const handleGoToExpenses = () => {
+        navigate('/expenses'); // Navigate to Expenses page
     };
 
     return (
@@ -66,6 +72,9 @@ const Main = () => {
                 </div>
                 <button type="submit">Add Expense</button>
             </form>
+            <button onClick={handleGoToExpenses} className="go-to-expenses-button">
+                Go to Expenses
+            </button>
             <ToastContainer />
         </>
     );
